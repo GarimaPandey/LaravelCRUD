@@ -17,6 +17,11 @@ use App\Http\Controllers\PostsController;
 Route::get('/',[PagesController::class,'index']);
 Route::get('/blog',[PostsController::class,'index']);
 Route::get('/blog/create',[PostsController::class,'create']);
+Route::post('/blog/save',[PostsController::class,'store']);
+Route::get('/blog/edit/{id}',[PostsController::class,'edit']);
+Route::put('/update/{id}',[PostsController::class,'update']);
+Route::get('blog/delete/{id}',[PostsController::class,'destroy']);
+
 
 
 
