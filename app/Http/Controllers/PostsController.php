@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use DB;
+use Illuminate\Support\Facades\Redirect;
+
+
 
 class PostsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('blogs.index');
+        $posts = Post::all()->toArray();
+        return view('blogs.index',compact('posts'));
     }
 
     /**
@@ -34,7 +41,24 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'url' => 'required',
+            'description' => 'required'
+        ]);
+             $new_post = new Post();
+             if($request)
+             {
+                $new_post->title = $request->title;
+                $new_post->url = $request->url;
+                $new_post->description = $request->description;
+                $new_post->save();
+             }
+             $posts = Post::all()->toArray();
+
+             return view('blogs.index','posts')->with('success','Post is succesfully added to your blog!!!!!!!!!');
+
+
     }
 
     /**
@@ -56,7 +80,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::where('id', $id)->first();
+        return view('blogs.edit',compact('post'));
     }
 
     /**
@@ -68,7 +93,21 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $result = DB::table('posts')
+      ->where('id', $id)
+      ->update([
+          'title' => $request['title'],
+          'url' => $request['url'],
+          'description' => $request['description'],
+          'updated_at' => date("Y-m-d", strtotime(NOW()))
+          ]);
+          $posts = Post::all()->toArray();
+
+      if($result)
+      {
+      return view('blogs.index',compact('posts'))->with('success','your post was edited succesfully');
+      }
+
     }
 
     /**
@@ -79,6 +118,11 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::where('id',$id)->delete();
+        if($post)
+        {
+            return Redirect::back()->with('success', 'Post Deleted Successfully');
+        }
+
     }
 }
