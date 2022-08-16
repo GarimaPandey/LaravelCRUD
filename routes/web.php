@@ -20,7 +20,8 @@ Route::get('/blog/create',[PostsController::class,'create']);
 Route::post('/blog/save',[PostsController::class,'store']);
 Route::get('/blog/edit/{id}',[PostsController::class,'edit']);
 Route::put('/update/{id}',[PostsController::class,'update']);
-Route::get('blog/delete/{id}',[PostsController::class,'destroy']);
+Route::get('/blog/view/{id}',[PostsController::class,'show']);
+Route::get('/blog/delete/{id}',[PostsController::class,'destroy']);
 
 
 
