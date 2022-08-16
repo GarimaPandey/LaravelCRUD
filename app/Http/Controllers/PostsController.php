@@ -56,7 +56,7 @@ class PostsController extends Controller
              }
              $posts = Post::all()->toArray();
 
-             return view('blogs.index','posts')->with('success','Post is succesfully added to your blog!!!!!!!!!');
+             return view('blogs.index',compact('posts'))->with('success','Post is succesfully added to your blog!!!!!!!!!');
 
 
     }
@@ -69,7 +69,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::where('id', $id)->first();
+        return view('blogs.view',compact('post'));
     }
 
     /**
@@ -116,7 +117,7 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         $post = Post::where('id',$id)->delete();
         if($post)
