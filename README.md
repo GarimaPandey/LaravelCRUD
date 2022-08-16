@@ -27,9 +27,9 @@ Laravel Project - Blog
 ## Help
 
 Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+
+command to run if cache issues happen:
+php artisan route:cache
 
 ## Authors
 
