@@ -5,13 +5,11 @@ Laravel Project - Blog
 * User Authentication 
 * Tailwind CSS used for frontend.
 
-## Description
+## Technologies
+
 
 * Laravel Framework 8.83.23
 * PHP 7.3.11
-
-## Technologies
-*
 
 ## Getting Started
 * Clone the repo: https://github.com/GarimaPandey/LaravelCRUD.git
@@ -24,7 +22,7 @@ Laravel Project - Blog
 ### Executing program
 
 * php artisan serve
-![alt text](resources/assets/Screen Shot 2022-08-16 at 2.56.14 AM.png)
+![alt text](https://github.com/GarimaPandey/LaravelCRUD/blob/main/resources/assets/Screen%20Shot%202022-08-16%20at%202.56.14%20AM.png)
 
 ## Help
 
