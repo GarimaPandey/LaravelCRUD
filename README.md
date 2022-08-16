@@ -16,7 +16,6 @@ Laravel Project - Blog
 ## Getting Started
 * Clone the repo: https://github.com/GarimaPandey/LaravelCRUD.git
 
-
 ### Installing
 
 * Run migrations: php artisan migrate
@@ -25,6 +24,7 @@ Laravel Project - Blog
 ### Executing program
 
 * php artisan serve
+![alt text](resources/assets/Screen Shot 2022-08-16 at 2.56.14 AM.png)
 
 ## Help
 
