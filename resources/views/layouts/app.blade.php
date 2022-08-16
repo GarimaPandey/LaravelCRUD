@@ -24,10 +24,15 @@
                         {{ config('app.name', 'Blog') }}
                     </a>
                 </div>
+                <div>
+                    <h6 class="text-white text-3xl text-center font-serif text-black-800">
+                        <b> Welcome to your Blog  !<b>
+                    </h6>
+                </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                     <a class="no-underline hover:underline" href="/">Home</a>
                     @if (!Auth::guest())
-                    <a class="no-underline hover:underline" href="/blog">Blog</a>
+                    <a class="no-underline hover:underline" href="/blog">Visit Your Blog here !!</a>
                     @endif
                     @guest
                         <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
