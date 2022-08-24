@@ -1,4 +1,4 @@
-# Project Title
+# Laravel CRUD
 
 Laravel Project - Blog
 * Basic CRUD functionalities on Post
